@@ -3,7 +3,7 @@ const cors = require('cors');
 const { dbConnection } = require('../database/config');
 class Server {
 	constructor() {
-		this.port = process.env.PORT;
+		this.port = process.env.PORT || 3000;
 		this.app = express();
 		this.paths = {
 			users: '/api/users',
