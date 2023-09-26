@@ -102,7 +102,7 @@ const getUsers = async (req, res = response) => {
 		users,
 	});
 };
-
+// TODO: Implement the following functions
 const changeUserEmail = async (req, res = response) => {};
 const changeUserPassword = async (req, res = response) => {};
 
