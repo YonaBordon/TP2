@@ -9,4 +9,5 @@ router.post('/admin/:id', [validateJWT, validateRole], addAdmin);
 
 router.delete('/admin/:id', [validateJWT, validateRole], deleteAdmin);
 
+
 module.exports = router;

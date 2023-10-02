@@ -7,6 +7,7 @@ class Server {
 		this.app = express();
 		this.paths = {
 			users: '/api/users',
+			products: '/api/products',
 		};
 
 		this.connectDB();
@@ -29,6 +30,7 @@ class Server {
 	routes() {
 		this.app.use(this.paths.users, require('../routes/users'));
 		this.app.use(this.paths.users, require('../routes/administrators'));
+		this.app.use(this.paths.products, require('../routes/products'));
 	}
 
 	listen() {
