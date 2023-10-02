@@ -1,36 +1,26 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 
-const { validateJWT, validateRole } = require('../midleware');
+const { validateJWT, validateRole } = require('../middleware');
+
+const {
+	addProduct,
+	deleteProduct,
+	getProduct,
+	getProducts,
+	updateProduct,
+} = require('../controllers/products');
 
 const router = Router();
 
-router.get('/products', (req, res) => {
-	res.json({
-		msg: 'get API - products',
-	});
-});
+router.get('/', getProducts);
 
-router.get('/products/:id', (req, res) => {
-	res.json({
-		msg: 'get API - products',
-	});
-});
+router.get('/:id', getProduct);
 
-router.post('/products', (req, res) => {
-	res.json({
-		msg: 'post API - products',
-	});
-});
+router.post('/', [validateJWT, validateRole], addProduct);
 
-router.put('/products/:id', (req, res) => {
-	res.json({
-		msg: 'put API - products',
-	});
-});
+router.put('/:id', [validateJWT, validateRole], updateProduct);
 
-router.delete('/products/:id', (req, res) => {
-	res.json({
-		msg: 'delete API - products',
-	});
-});
+router.delete('/:id', [validateJWT, validateRole], deleteProduct);
+
+module.exports = router;
